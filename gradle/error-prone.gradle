@@ -1,6 +1,7 @@
 import static java.lang.System.getenv
 
-apply plugin: "net.ltgt.errorprone"
+//id 'net.ltgt.errorprone' version '4.3.0'
+apply plugin: "net.ltgt.errorprone" // why working without initial declaration? in spot its breaking without.
 
 dependencies {
 	errorprone("com.google.errorprone:error_prone_core:2.42.0")
