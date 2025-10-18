@@ -77,7 +77,7 @@ class PlainTextThreadDumpFormatter {
 
 	private void writeStackTraceElement(PrintWriter writer, StackTraceElement element, ThreadInfo info,
 			List<MonitorInfo> lockedMonitors, boolean firstElement) {
-		writer.printf("\tat %s%n", element.toString());
+		writer.printf("\tat %s%n", element);
 		LockInfo lockInfo = info.getLockInfo();
 		if (firstElement && lockInfo != null) {
 			if (element.getClassName().equals(Object.class.getName()) && element.getMethodName().equals("wait")) {

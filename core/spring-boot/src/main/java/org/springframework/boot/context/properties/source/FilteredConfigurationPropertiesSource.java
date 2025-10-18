@@ -73,7 +73,7 @@ class FilteredConfigurationPropertiesSource implements ConfigurationPropertySour
 
 	@Override
 	public String toString() {
-		return this.source.toString() + " (filtered)";
+		return this.source + " (filtered)";
 	}
 
 }

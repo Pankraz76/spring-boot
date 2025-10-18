@@ -55,7 +55,7 @@ class AnsiString {
 		for (Code code : codes) {
 			ansi = applyCode(ansi, code);
 		}
-		this.value.append(ansi.a(text).reset().toString());
+		this.value.append(ansi.a(text).reset());
 		return this;
 	}
 

@@ -36,7 +36,7 @@ final class Elements {
 			TypeElement enclosingElement = getEnclosingTypeElement(element.asType());
 			if (enclosingElement != null) {
 				return getQualifiedName(enclosingElement) + "$"
-						+ ((DeclaredType) element.asType()).asElement().getSimpleName().toString();
+						+ ((DeclaredType) element.asType()).asElement().getSimpleName();
 			}
 			if (element instanceof TypeElement typeElement) {
 				return typeElement.getQualifiedName().toString();
