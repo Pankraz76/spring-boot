@@ -11,11 +11,11 @@ dependencies {
 tasks.withType(JavaCompile).configureEach {
 	options.errorprone {
 		disableAllChecks = true
-		error("RedundantStringConversion")
+		error("UnusedParameter")
 		if (!getenv().containsKey("CI") && getenv("IN_PLACE")?.toBoolean()) {
 			errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
-					"-XepPatchChecks:RedundantStringConversion"
+					"-XepPatchChecks:UnusedParameter"
 					)
 		}
 	}
