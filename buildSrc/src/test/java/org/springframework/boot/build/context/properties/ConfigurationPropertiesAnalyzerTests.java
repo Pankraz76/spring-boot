@@ -46,7 +46,7 @@ class ConfigurationPropertiesAnalyzerTests {
 	}
 
 	@Test
-	void analyzeSortWithAlphabeticalOrder(@TempDir File tempDir) throws IOException {
+	void analyzeSortWithAlphabeticalOrder(@TempDir File tempDir) throws Exception {
 		File metadata = new File(tempDir, "metadata.json");
 		Files.writeString(metadata.toPath(), """
 				{ "properties": [
@@ -62,7 +62,7 @@ class ConfigurationPropertiesAnalyzerTests {
 	}
 
 	@Test
-	void analyzeSortWithViolations(@TempDir File tempDir) throws IOException {
+	void analyzeSortWithViolations(@TempDir File tempDir) throws Exception {
 		File metadata = new File(tempDir, "metadata.json");
 		Files.writeString(metadata.toPath(), """
 				{ "properties": [
@@ -80,7 +80,7 @@ class ConfigurationPropertiesAnalyzerTests {
 	}
 
 	@Test
-	void analyzePropertyDescription(@TempDir File tempDir) throws IOException {
+	void analyzePropertyDescription(@TempDir File tempDir) throws Exception {
 		File metadata = new File(tempDir, "metadata.json");
 		Files.writeString(metadata.toPath(), """
 				{ "properties": [
@@ -98,7 +98,7 @@ class ConfigurationPropertiesAnalyzerTests {
 	}
 
 	@Test
-	void analyzePropertyDescriptionWithMissingDescription(@TempDir File tempDir) throws IOException {
+	void analyzePropertyDescriptionWithMissingDescription(@TempDir File tempDir) throws Exception {
 		File metadata = new File(tempDir, "metadata.json");
 		Files.writeString(metadata.toPath(), """
 				{ "properties": [
@@ -116,7 +116,7 @@ class ConfigurationPropertiesAnalyzerTests {
 	}
 
 	@Test
-	void analyzeDeprecatedPropertyWithMissingSince(@TempDir File tempDir) throws IOException {
+	void analyzeDeprecatedPropertyWithMissingSince(@TempDir File tempDir) throws Exception {
 		File metadata = new File(tempDir, "metadata.json");
 		Files.writeString(metadata.toPath(), """
 				{ "properties": [
@@ -142,12 +142,12 @@ class ConfigurationPropertiesAnalyzerTests {
 	}
 
 	@Test
-	void writeEmptyReport(@TempDir File tempDir) throws IOException {
+	void writeEmptyReport(@TempDir File tempDir) throws Exception {
 		assertThat(writeToFile(tempDir, new Report(tempDir))).hasContent("No problems found.");
 	}
 
 	@Test
-	void writeReportWithNoProblemsFound(@TempDir File tempDir) throws IOException {
+	void writeReportWithNoProblemsFound(@TempDir File tempDir) throws Exception {
 		Report report = new Report(tempDir);
 		File first = new File(tempDir, "metadata-1.json");
 		report.registerAnalysis(first, new Analysis("Check for things:"));
@@ -163,7 +163,7 @@ class ConfigurationPropertiesAnalyzerTests {
 	}
 
 	@Test
-	void writeReportWithOneProblem(@TempDir File tempDir) throws IOException {
+	void writeReportWithOneProblem(@TempDir File tempDir) throws Exception {
 		Report report = new Report(tempDir);
 		File metadata = new File(tempDir, "metadata-1.json");
 		Analysis analysis = new Analysis("Check for things:");
@@ -181,7 +181,7 @@ class ConfigurationPropertiesAnalyzerTests {
 	}
 
 	@Test
-	void writeReportWithSeveralProblems(@TempDir File tempDir) throws IOException {
+	void writeReportWithSeveralProblems(@TempDir File tempDir) throws Exception {
 		Report report = new Report(tempDir);
 		File metadata = new File(tempDir, "metadata-1.json");
 		Analysis firstAnalysis = new Analysis("Check for things:");

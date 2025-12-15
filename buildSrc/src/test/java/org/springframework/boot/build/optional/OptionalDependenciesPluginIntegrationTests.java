@@ -47,7 +47,7 @@ class OptionalDependenciesPluginIntegrationTests {
 	}
 
 	@Test
-	void optionalConfigurationIsCreated() throws IOException {
+	void optionalConfigurationIsCreated() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins { id 'org.springframework.boot.optional-dependencies' }");
 			out.println("task printConfigurations {");
@@ -61,22 +61,22 @@ class OptionalDependenciesPluginIntegrationTests {
 	}
 
 	@Test
-	void optionalDependenciesAreAddedToMainSourceSetsCompileClasspath() throws IOException {
+	void optionalDependenciesAreAddedToMainSourceSetsCompileClasspath() throws Exception {
 		optionalDependenciesAreAddedToSourceSetClasspath("main", "compileClasspath");
 	}
 
 	@Test
-	void optionalDependenciesAreAddedToMainSourceSetsRuntimeClasspath() throws IOException {
+	void optionalDependenciesAreAddedToMainSourceSetsRuntimeClasspath() throws Exception {
 		optionalDependenciesAreAddedToSourceSetClasspath("main", "runtimeClasspath");
 	}
 
 	@Test
-	void optionalDependenciesAreAddedToTestSourceSetsCompileClasspath() throws IOException {
+	void optionalDependenciesAreAddedToTestSourceSetsCompileClasspath() throws Exception {
 		optionalDependenciesAreAddedToSourceSetClasspath("test", "compileClasspath");
 	}
 
 	@Test
-	void optionalDependenciesAreAddedToTestSourceSetsRuntimeClasspath() throws IOException {
+	void optionalDependenciesAreAddedToTestSourceSetsRuntimeClasspath() throws Exception {
 		optionalDependenciesAreAddedToSourceSetClasspath("test", "runtimeClasspath");
 	}
 

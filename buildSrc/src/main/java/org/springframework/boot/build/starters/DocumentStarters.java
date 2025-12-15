@@ -139,7 +139,7 @@ public abstract class DocumentStarters extends DefaultTask {
 		}
 
 		private boolean isProduction() {
-			return this.name.equals("spring-boot-starter-actuator");
+			return "spring-boot-starter-actuator".equals(this.name);
 		}
 
 		private boolean isTechnical() {

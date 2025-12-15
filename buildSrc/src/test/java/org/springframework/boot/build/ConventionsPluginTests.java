@@ -70,7 +70,7 @@ class ConventionsPluginTests {
 	}
 
 	@Test
-	void jarIncludesLegalFiles() throws IOException {
+	void jarIncludesLegalFiles() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins {");
 			out.println("    id 'java'");
@@ -101,7 +101,7 @@ class ConventionsPluginTests {
 	}
 
 	@Test
-	void sourceJarIsBuilt() throws IOException {
+	void sourceJarIsBuilt() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins {");
 			out.println("    id 'java'");
@@ -132,7 +132,7 @@ class ConventionsPluginTests {
 	}
 
 	@Test
-	void javadocJarIsBuilt() throws IOException {
+	void javadocJarIsBuilt() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins {");
 			out.println("    id 'java'");
@@ -176,7 +176,7 @@ class ConventionsPluginTests {
 	}
 
 	@Test
-	void testRetryIsConfiguredWithThreeRetriesOnCI() throws IOException {
+	void retryIsConfiguredWithThreeRetriesOnCI() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins {");
 			out.println("    id 'java'");
@@ -198,7 +198,7 @@ class ConventionsPluginTests {
 	}
 
 	@Test
-	void testRetryIsConfiguredWithZeroRetriesLocally() throws IOException {
+	void retryIsConfiguredWithZeroRetriesLocally() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins {");
 			out.println("    id 'java'");

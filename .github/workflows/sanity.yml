@@ -1,0 +1,19 @@
+name: Sanity Check 🕊️
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions: read-all
+jobs:
+  verify:
+    name: Verify 📊
+    if: ${{ github.repository == 'spring-projects/spring-boot' }}
+    runs-on: ${{ vars.UBUNTU_MEDIUM || 'ubuntu-latest' }}
+    steps:
+      - name: Checkout Code 📥
+        uses: actions/checkout@v6
+      - name: Build 📦
+        id: build
+        uses: ./.github/actions/build
+      - name: Rewrite ♻️
+        run: ./gradlew rewriteDryRun

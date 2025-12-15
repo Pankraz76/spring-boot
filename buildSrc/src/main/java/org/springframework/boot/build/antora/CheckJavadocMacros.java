@@ -336,7 +336,7 @@ public abstract class CheckJavadocMacros extends DefaultTask {
 		}
 
 		private static WellKnownAnchor of(String anchor, Origin origin) {
-			if (anchor.equals("enum-constant-summary")) {
+			if ("enum-constant-summary".equals(anchor)) {
 				return new WellKnownAnchor(origin);
 			}
 			return null;

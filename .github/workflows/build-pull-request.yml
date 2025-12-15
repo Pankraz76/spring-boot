@@ -1,22 +1,22 @@
-name: Build Pull Request
+name: Build Pull Request 🏭️
 on: pull_request
 permissions:
   contents: read
 jobs:
   build:
-    name: Build Pull Request
+    name: Build 🏗
     if: ${{ github.repository == 'spring-projects/spring-boot' }}
     runs-on: ${{ vars.UBUNTU_MEDIUM || 'ubuntu-latest' }}
     steps:
-      - name: Check Out Code
+      - name: Checkout Code 📥
         uses: actions/checkout@v6
-      - name: Build
+      - name: Build 📦
         id: build
         uses: ./.github/actions/build
-      - name: Print JVM Thread Dumps When Cancelled
+      - name: Log Potentially Cancelled JVM Thread Dumps 📋
         if: cancelled()
         uses: ./.github/actions/print-jvm-thread-dumps
-      - name: Upload Build Reports
+      - name: Upload Build Report 📊
         if: failure()
         uses: actions/upload-artifact@v5
         with:
