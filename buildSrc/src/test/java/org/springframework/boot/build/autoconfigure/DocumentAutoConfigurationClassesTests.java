@@ -43,7 +43,7 @@ class DocumentAutoConfigurationClassesTests {
 	private File temp;
 
 	@Test
-	void classesAreDocumented() throws IOException {
+	void classesAreDocumented() throws Exception {
 		File output = documentAutoConfigurationClasses((metadataDir) -> {
 			writeAutoConfigurationMetadata("spring-boot-one", List.of("org.springframework.boot.one.AAutoConfiguration",
 					"org.springframework.boot.one.BAutoConfiguration"), metadataDir);
@@ -56,7 +56,7 @@ class DocumentAutoConfigurationClassesTests {
 	}
 
 	@Test
-	void whenMetadataIsRemovedThenOutputForThatMetadataIsNoLongerPresent() throws IOException {
+	void whenMetadataIsRemovedThenOutputForThatMetadataIsNoLongerPresent() throws Exception {
 		documentAutoConfigurationClasses((metadataDir) -> {
 			writeAutoConfigurationMetadata("spring-boot-one", List.of("org.springframework.boot.one.AAutoConfiguration",
 					"org.springframework.boot.one.BAutoConfiguration"), metadataDir);

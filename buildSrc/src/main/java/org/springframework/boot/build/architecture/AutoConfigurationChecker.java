@@ -117,7 +117,7 @@ class AutoConfigurationChecker {
 
 		private boolean isBootClass(JavaClass javaClass) {
 			String pkg = javaClass.getPackage().getName();
-			return pkg.equals(SPRING_BOOT_ROOT_PACKAGE) || pkg.startsWith(SPRING_BOOT_ROOT_PACKAGE + ".");
+			return SPRING_BOOT_ROOT_PACKAGE.equals(pkg) || pkg.startsWith(SPRING_BOOT_ROOT_PACKAGE + ".");
 		}
 
 	}

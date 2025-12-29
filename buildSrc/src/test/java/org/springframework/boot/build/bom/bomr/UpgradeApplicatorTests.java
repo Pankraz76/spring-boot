@@ -18,7 +18,6 @@ package org.springframework.boot.build.bom.bomr;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.Collections;
@@ -46,7 +45,7 @@ class UpgradeApplicatorTests {
 	File temp;
 
 	@Test
-	void whenUpgradeIsAppliedToLibraryWithVersionThenBomIsUpdated() throws IOException {
+	void whenUpgradeIsAppliedToLibraryWithVersionThenBomIsUpdated() throws Exception {
 		File bom = new File(this.temp, "bom.gradle");
 		FileCopyUtils.copy(new File("src/test/resources/bom.gradle"), bom);
 		String originalContents = Files.readString(bom.toPath());
@@ -61,7 +60,7 @@ class UpgradeApplicatorTests {
 	}
 
 	@Test
-	void whenUpgradeIsAppliedToLibraryWithVersionPropertyThenGradlePropertiesIsUpdated() throws IOException {
+	void whenUpgradeIsAppliedToLibraryWithVersionPropertyThenGradlePropertiesIsUpdated() throws Exception {
 		File bom = new File(this.temp, "bom.gradle");
 		FileCopyUtils.copy(new File("src/test/resources/bom.gradle"), bom);
 		File gradleProperties = new File(this.temp, "gradle.properties");

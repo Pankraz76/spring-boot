@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * @author Andy Wilkinson
  */
-public class TestSliceMetadataTests {
+class TestSliceMetadataTests {
 
 	@TempDir
 	private File temp;

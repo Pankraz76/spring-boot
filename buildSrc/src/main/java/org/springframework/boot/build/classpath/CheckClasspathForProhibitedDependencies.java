@@ -85,7 +85,7 @@ public abstract class CheckClasspathForProhibitedDependencies extends DefaultTas
 	}
 
 	private boolean prohibitedSlf4j(ModuleVersionIdentifier id) {
-		return id.getGroup().equals("org.slf4j") && id.getName().equals("jcl-over-slf4j");
+		return "org.slf4j".equals(id.getGroup()) && "jcl-over-slf4j".equals(id.getName());
 	}
 
 	private boolean prohibitedJbossSpec(ModuleVersionIdentifier id) {

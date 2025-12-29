@@ -1,0 +1,19 @@
+project.apply(plugin: "org.openrewrite.rewrite")
+
+dependencies {
+	rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.23.0")
+	rewrite("org.openrewrite.recipe:rewrite-testing-frameworks:3.23.0")
+}
+
+rewrite {
+	activeRecipe("org.springframework.boot.openrewrite.SanityCheck")
+	configFile = project.getRootProject().file("${rootDir}/config/sanity.yml")
+	exclusion( // incompatible
+		"**AggregatorPlugin.java",
+		"**AntoraConventions.java",
+		"**ArchitectureCheckTests.java",
+		"**architecture/junit/enumsource**",
+	)
+	setExportDatatables(true)
+	setFailOnDryRunResults(true)
+}

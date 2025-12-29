@@ -18,7 +18,6 @@ package org.springframework.boot.build.bom;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.function.Consumer;
 
@@ -51,7 +50,7 @@ class BomPluginIntegrationTests {
 	}
 
 	@Test
-	void libraryModulesAreIncludedInDependencyManagementOfGeneratedPom() throws IOException {
+	void libraryModulesAreIncludedInDependencyManagementOfGeneratedPom() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins {");
 			out.println("    id 'org.springframework.boot.bom'");
@@ -88,7 +87,7 @@ class BomPluginIntegrationTests {
 	}
 
 	@Test
-	void libraryPluginsAreIncludedInPluginManagementOfGeneratedPom() throws IOException {
+	void libraryPluginsAreIncludedInPluginManagementOfGeneratedPom() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins {");
 			out.println("    id 'org.springframework.boot.bom'");
@@ -143,7 +142,7 @@ class BomPluginIntegrationTests {
 	}
 
 	@Test
-	void moduleExclusionsAreIncludedInDependencyManagementOfGeneratedPom() throws IOException {
+	void moduleExclusionsAreIncludedInDependencyManagementOfGeneratedPom() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins {");
 			out.println("    id 'org.springframework.boot.bom'");
@@ -177,7 +176,7 @@ class BomPluginIntegrationTests {
 	}
 
 	@Test
-	void moduleTypesAreIncludedInDependencyManagementOfGeneratedPom() throws IOException {
+	void moduleTypesAreIncludedInDependencyManagementOfGeneratedPom() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins {");
 			out.println("    id 'org.springframework.boot.bom'");
@@ -209,7 +208,7 @@ class BomPluginIntegrationTests {
 	}
 
 	@Test
-	void moduleClassifiersAreIncludedInDependencyManagementOfGeneratedPom() throws IOException {
+	void moduleClassifiersAreIncludedInDependencyManagementOfGeneratedPom() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins {");
 			out.println("    id 'org.springframework.boot.bom'");
@@ -268,7 +267,7 @@ class BomPluginIntegrationTests {
 	}
 
 	@Test
-	void libraryNamedSpringBootHasNoVersionProperty() throws IOException {
+	void libraryNamedSpringBootHasNoVersionProperty() throws Exception {
 		try (PrintWriter out = new PrintWriter(new FileWriter(this.buildFile))) {
 			out.println("plugins {");
 			out.println("    id 'org.springframework.boot.bom'");
