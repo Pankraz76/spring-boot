@@ -211,7 +211,7 @@ public final class TestPropertyValues {
 			}
 		}
 		Map<String, Object> source = new LinkedHashMap<>(this.properties);
-		sources.addFirst((type.equals(Type.MAP) ? new MapPropertySource(name, source)
+		sources.addFirst(((type == Type.MAP) ? new MapPropertySource(name, source)
 				: new SystemEnvironmentPropertySource(name, source)));
 	}
 

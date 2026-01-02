@@ -91,7 +91,7 @@ class OutputCapture implements CapturedOutput {
 	 */
 	@Override
 	public String getOut() {
-		return get(Type.OUT::equals);
+		return get((v) -> v == Type.OUT);
 	}
 
 	/**
@@ -100,7 +100,7 @@ class OutputCapture implements CapturedOutput {
 	 */
 	@Override
 	public String getErr() {
-		return get(Type.ERR::equals);
+		return get((v) -> v == Type.ERR);
 	}
 
 	/**

@@ -1,4 +1,4 @@
-name: Build
+name: Build 📦
 description: 'Builds the project, optionally publishing it to a local deployment repository'
 inputs:
   commercial-release-repository-url:
@@ -50,7 +50,7 @@ outputs:
 runs:
   using: composite
   steps:
-    - name: Prepare Gradle Build
+    - name: Prepare Gradle Build ⚙️
       uses: ./.github/actions/prepare-gradle-build
       with:
         cache-read-only: ${{ inputs.gradle-cache-read-only }}
@@ -59,7 +59,7 @@ runs:
         java-early-access: ${{ inputs.java-early-access }}
         java-toolchain: ${{ inputs.java-toolchain }}
         java-version: ${{ inputs.java-version }}
-    - name: Build
+    - name: Sanity Build 📦
       id: build
       if: ${{ inputs.publish == 'false' }}
       shell: bash
@@ -68,8 +68,19 @@ runs:
         COMMERCIAL_REPO_PASSWORD: ${{ inputs.commercial-repository-password }}
         COMMERCIAL_REPO_USERNAME: ${{ inputs.commercial-repository-username }}
         COMMERCIAL_SNAPSHOT_REPO_URL: ${{ inputs.commercial-snapshot-repository-url }}
-      run: ./gradlew build
-    - name: Publish
+      # run: ./gradlew build
+      run: ./gradlew rewriteDryRun build -Dorg.gradle.jvmargs=-Xmx12G
+    - name: Sanity Check 🦢
+      id: sanity
+      if: ${{ inputs.publish == 'false' }}
+      shell: bash
+      env:
+        COMMERCIAL_RELEASE_REPO_URL: ${{ inputs.commercial-release-repository-url }}
+        COMMERCIAL_REPO_PASSWORD: ${{ inputs.commercial-repository-password }}
+        COMMERCIAL_REPO_USERNAME: ${{ inputs.commercial-repository-username }}
+        COMMERCIAL_SNAPSHOT_REPO_URL: ${{ inputs.commercial-snapshot-repository-url }}
+      run: ./gradlew rewriteDryRun -Dorg.gradle.jvmargs=-Xmx12G
+    - name: Publish 📡
       id: publish
       if: ${{ inputs.publish == 'true' }}
       shell: bash

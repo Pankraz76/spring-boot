@@ -205,7 +205,7 @@ public class JettyWebServerFactoryCustomizer
 		if (properties.getCustomFormat() != null) {
 			return properties.getCustomFormat();
 		}
-		if (Accesslog.Format.EXTENDED_NCSA.equals(properties.getFormat())) {
+		if (Accesslog.Format.EXTENDED_NCSA == properties.getFormat()) {
 			return CustomRequestLog.EXTENDED_NCSA_FORMAT;
 		}
 		return CustomRequestLog.NCSA_FORMAT;

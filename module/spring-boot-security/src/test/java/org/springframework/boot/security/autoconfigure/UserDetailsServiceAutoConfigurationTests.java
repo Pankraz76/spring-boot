@@ -367,7 +367,7 @@ class UserDetailsServiceAutoConfigurationTests {
 		private <T extends AbstractApplicationContextRunner<?, ?, ?>> Function<T, T> present() {
 			return (contextRunner) -> (T) contextRunner
 				.withClassLoader(new FilteredClassLoader(Stream.of(AlternativeFormOfAuthentication.values())
-					.filter(Predicate.not(this::equals))
+					.filter(Predicate.not((v) -> v == this))
 					.map(AlternativeFormOfAuthentication::getType)
 					.toArray(Class[]::new)));
 		}

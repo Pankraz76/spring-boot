@@ -210,7 +210,7 @@ public class ConcurrentKafkaListenerContainerFactoryConfigurer {
 		map.from(this.recordMessageConverter).to(factory::setRecordMessageConverter);
 		map.from(this.recordFilterStrategy).to(factory::setRecordFilterStrategy);
 		map.from(this.replyTemplate).to(factory::setReplyTemplate);
-		if (properties.getType().equals(Listener.Type.BATCH)) {
+		if (properties.getType() == Listener.Type.BATCH) {
 			factory.setBatchListener(true);
 		}
 		map.from(this.commonErrorHandler).to(factory::setCommonErrorHandler);

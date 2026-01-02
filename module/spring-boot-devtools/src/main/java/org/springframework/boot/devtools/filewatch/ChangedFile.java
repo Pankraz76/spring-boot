@@ -92,7 +92,7 @@ public final class ChangedFile {
 			return false;
 		}
 		if (obj instanceof ChangedFile other) {
-			return this.file.equals(other.file) && this.type.equals(other.type);
+			return this.file.equals(other.file) && this.type == other.type;
 		}
 		return super.equals(obj);
 	}

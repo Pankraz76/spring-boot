@@ -19,6 +19,7 @@ permissions:
   contents: read
 jobs:
   distribute-spring-enterprise-release-bundle:
+    name: Distribute Release Bundle 📦
     runs-on: ${{ vars.UBUNTU_SMALL || 'ubuntu-latest' }}
     steps:
       - name: Create Bundle

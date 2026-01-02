@@ -54,7 +54,7 @@ class ZipkinHttpClientSender extends HttpSender {
 			.POST(BodyPublishers.ofByteArray(body))
 			.uri(endpoint)
 			.timeout(this.readTimeout);
-		headers.forEach((name, value) -> request.header(name, value));
+		headers.forEach(request::header);
 		try {
 			HttpResponse<Void> response = this.httpClient.send(request.build(), BodyHandlers.discarding());
 			if (response.statusCode() / 100 != 2) {

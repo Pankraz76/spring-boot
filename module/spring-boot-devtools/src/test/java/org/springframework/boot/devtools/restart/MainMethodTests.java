@@ -62,7 +62,7 @@ class MainMethodTests {
 
 	@Test // gh-39733
 	void viaJarLauncher() throws Exception {
-		FakeJarLauncher.action = (args) -> Valid.main(args);
+		FakeJarLauncher.action = MainMethodTests.Valid::main;
 		MainMethod method = new TestThread(FakeJarLauncher::main).test();
 		Method expectedMain = Valid.class.getMethod("main", String[].class);
 		assertThat(method.getMethod()).isEqualTo(expectedMain);
