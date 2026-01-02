@@ -632,7 +632,7 @@ class TomcatServletWebServerFactoryTests extends AbstractServletWebServerFactory
 		});
 		Object unconnectableRequest = Awaitility.await()
 			.until(() -> initiateGetRequest(HttpClients.createDefault(), port, "/").get(),
-					(result) -> result instanceof Exception);
+					Exception.class::isInstance);
 		assertThat(unconnectableRequest).isInstanceOf(HttpHostConnectException.class);
 		blockingServlet.admitOne();
 		assertThat(request.get()).isInstanceOf(HttpResponse.class);
@@ -664,7 +664,7 @@ class TomcatServletWebServerFactoryTests extends AbstractServletWebServerFactory
 			Future<Object> idleConnectionRequest = initiateGetRequest(httpClient, port, "/");
 			Object result = idleConnectionRequest.get();
 			return result;
-		}, (result) -> result instanceof Exception);
+		}, Exception.class::isInstance);
 		assertThat(idleConnectionRequestResult).isInstanceOfAny(SocketException.class, NoHttpResponseException.class);
 		if (idleConnectionRequestResult instanceof SocketException socketException) {
 			assertThat(socketException).hasMessage("Connection reset");

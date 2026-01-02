@@ -217,7 +217,7 @@ public class CachingOperationInvoker implements OperationInvoker {
 				return false;
 			}
 			CacheKey other = (CacheKey) obj;
-			return this.apiVersion.equals(other.apiVersion)
+			return this.apiVersion == other.apiVersion
 					&& ObjectUtils.nullSafeEquals(this.principal, other.principal)
 					&& ObjectUtils.nullSafeEquals(this.serverNamespace, other.serverNamespace);
 		}

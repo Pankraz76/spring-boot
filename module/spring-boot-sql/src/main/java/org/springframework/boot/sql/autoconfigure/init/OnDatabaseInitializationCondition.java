@@ -67,7 +67,7 @@ public abstract class OnDatabaseInitializationCondition extends SpringBootCondit
 	}
 
 	private boolean match(DatabaseInitializationMode mode) {
-		return !mode.equals(DatabaseInitializationMode.NEVER);
+		return mode != DatabaseInitializationMode.NEVER;
 	}
 
 	private DatabaseInitializationMode getDatabaseInitializationMode(Environment environment,

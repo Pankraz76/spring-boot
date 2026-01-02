@@ -70,7 +70,7 @@ public class Cache {
 	 * @return the cache, or {@code null} if it is not a volume cache
 	 */
 	public @Nullable Volume getVolume() {
-		return (this.format.equals(Format.VOLUME)) ? (Volume) this : null;
+		return (this.format == Format.VOLUME) ? (Volume) this : null;
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class Cache {
 	 * @return the cache, or {@code null} if it is not a bind cache
 	 */
 	public @Nullable Bind getBind() {
-		return (this.format.equals(Format.BIND)) ? (Bind) this : null;
+		return (this.format == Format.BIND) ? (Bind) this : null;
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class Cache {
 			return false;
 		}
 		Cache other = (Cache) obj;
-		return Objects.equals(this.format, other.format);
+		return this.format == other.format;
 	}
 
 	@Override

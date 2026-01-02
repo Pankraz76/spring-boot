@@ -14,9 +14,9 @@ jobs:
     if: ${{ github.repository == 'spring-projects/spring-boot' }}
     runs-on: ${{ vars.UBUNTU_MEDIUM || 'ubuntu-latest' }}
     steps:
-      - name: Check Out Code
+      - name: Checkout Code 📥
         uses: actions/checkout@v6
-      - name: Build and Publish
+      - name: Build 📦 and Publish 📡
         id: build-and-publish
         uses: ./.github/actions/build
         with:
@@ -59,7 +59,7 @@ jobs:
       - verify
     runs-on: ${{ vars.UBUNTU_SMALL || 'ubuntu-latest' }}
     steps:
-      - name: Check Out Code
+      - name: Checkout Code 📥
         uses: actions/checkout@v6
       - name: Sync to Maven Central
         uses: ./.github/actions/sync-to-maven-central
@@ -89,7 +89,7 @@ jobs:
       - sync-to-maven-central
     runs-on: ${{ vars.UBUNTU_SMALL || 'ubuntu-latest' }}
     steps:
-      - name: Check Out Code
+      - name: Checkout Code 📥
         uses: actions/checkout@v6
       - name: Publish
         uses: ./.github/actions/publish-gradle-plugin
@@ -120,7 +120,7 @@ jobs:
       - trigger-docs-build
     runs-on: ${{ vars.UBUNTU_SMALL || 'ubuntu-latest' }}
     steps:
-      - name: Check Out Code
+      - name: Checkout Code 📥
         uses: actions/checkout@v6
       - name: Create GitHub Release
         uses: ./.github/actions/create-github-release

@@ -14,9 +14,9 @@ jobs:
     if: ${{ github.repository == 'spring-projects/spring-boot' || github.repository == 'spring-projects/spring-boot-commercial' }}
     runs-on: ${{ vars.UBUNTU_MEDIUM || 'ubuntu-latest' }}
     steps:
-      - name: Check Out Code
+      - name: Checkout Code 📥
         uses: actions/checkout@v6
-      - name: Build and Publish
+      - name: Build 📦 and Publish 📡
         id: build-and-publish
         uses: ./.github/actions/build
         with:
