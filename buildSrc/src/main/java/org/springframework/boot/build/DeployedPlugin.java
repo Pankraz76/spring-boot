@@ -47,14 +47,14 @@ public class DeployedPlugin implements Plugin<Project> {
 		project.afterEvaluate((evaluated) -> project.getPlugins().withType(JavaPlugin.class).all((javaPlugin) -> {
 			if (((Jar) project.getTasks().getByName(JavaPlugin.JAR_TASK_NAME)).isEnabled()) {
 				project.getComponents()
-					.matching((component) -> component.getName().equals("java"))
+					.matching((component) -> "java".equals(component.getName()))
 					.all(mavenPublication::from);
 			}
 		}));
 		project.getPlugins()
 			.withType(JavaPlatformPlugin.class)
 			.all((javaPlugin) -> project.getComponents()
-				.matching((component) -> component.getName().equals("javaPlatform"))
+				.matching((component) -> "javaPlatform".equals(component.getName()))
 				.all(mavenPublication::from));
 	}
 

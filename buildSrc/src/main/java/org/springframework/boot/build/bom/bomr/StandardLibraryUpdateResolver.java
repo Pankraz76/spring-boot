@@ -74,7 +74,7 @@ class StandardLibraryUpdateResolver implements LibraryUpdateResolver {
 	}
 
 	protected boolean isLibraryExcluded(Library library) {
-		return library.getName().equals("Spring Boot");
+		return "Spring Boot".equals(library.getName());
 	}
 
 	protected List<VersionOption> getVersionOptions(Library library) {

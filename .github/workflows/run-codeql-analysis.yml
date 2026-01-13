@@ -1,4 +1,4 @@
-name: "Run CodeQL Analysis"
+name: Run CodeQL Analysis 📊
 on:
   push:
   pull_request:
@@ -6,6 +6,7 @@ on:
 permissions: read-all
 jobs:
   run-analysis:
+    name: Inspect 🔎
     permissions:
       actions: read
       contents: read
